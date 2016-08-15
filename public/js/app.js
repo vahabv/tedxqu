@@ -60,6 +60,9 @@
 
        $(".sp2015").click(function(){
        	    var sp15id = $(this).attr('name');
+            $(".popback").show(20, function(){
+                $(".popup").slideDown('fast');
+              });
        		$.ajax({
        			type: "GET",
        			url: "showvideo/"+sp15id,
@@ -67,14 +70,17 @@
        				$(".sp15popvideo").attr('src', data.video);
        				$(".popup h1").html(data.description);
        				$(".popup p").html(data.full_name);
-       				$(".popback").show(20, function(){
-                $(".popup").slideDown('fast');
+       				$(".popup .loadingPop").hide(50, function(){
+                $(".popup .contentPop").slideDown("fast");
               });
        			}
        		});
        });
        $(".sp2016").click(function(){
        	    var sp16id = $(this).attr('name');
+            $(".popback").show(20, function(){
+                $(".popup2016").slideDown('fast');
+            });
        		$.ajax({
        			type: "GET",
        			url: "showinfo/"+sp16id,
@@ -83,14 +89,18 @@
        				$(".popup2016 h1").html(data.description);
        				$(".popup2016 h2").html(data.full_name);
        				$(".popup2016 p").html(data.about);
-       				$(".popback").show(20, function(){
-                $(".popup2016").slideDown('fast');
+       				$(".popup2016 .loadingPop").hide(50, function(){
+                $(".popup2016 .contentPop").slideDown("fast");
               });
        			}
        		});
        });
+
+
        $(".popback").click(function(){
+          $(".contentPop").hide("fast");
           $(".popup").slideUp('fast');
           $(".popup2016").slideUp('fast');
        		$(".popback").hide("fast");
+          $(".loadingPop").show("fast");
        });
