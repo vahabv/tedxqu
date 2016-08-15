@@ -59,41 +59,51 @@
 
 
        $(".sp2015").click(function(){
-       	    var sp15id = $(this).attr('name');
+            var sp15id = $(this).attr('name');
             $(".popback").show(20, function(){
                 $(".popup").slideDown('fast');
               });
-       		$.ajax({
-       			type: "GET",
-       			url: "showvideo/"+sp15id,
-       			success: function(data){
-       				$(".sp15popvideo").attr('src', data.video);
-       				$(".popup h1").html(data.description);
-       				$(".popup p").html(data.full_name);
-       				$(".popup .loadingPop").hide(50, function(){
-                $(".popup .contentPop").slideDown("fast");
-              });
-       			}
-       		});
+          $.ajax({
+            type: "GET",
+            url: "showvideo/"+sp15id,
+            success: function(data){
+              $(".sp15popvideo").attr('src', data.video);
+              $(".popup h1").html(data.description);
+              $(".popup p").html(data.full_name);
+
+              setTimeout(function(){
+                $(".popup .loadingPop").hide(20, function(){
+                  
+                    $(".popup .contentPop").slideDown("fast");
+                  
+                });
+              }, 150);
+
+            }
+          });
        });
        $(".sp2016").click(function(){
-       	    var sp16id = $(this).attr('name');
+            var sp16id = $(this).attr('name');
             $(".popback").show(20, function(){
                 $(".popup2016").slideDown('fast');
             });
-       		$.ajax({
-       			type: "GET",
-       			url: "showinfo/"+sp16id,
-       			success: function(data){
-       				$(".popup2016 img").attr('src', data.img_url);
-       				$(".popup2016 h1").html(data.description);
-       				$(".popup2016 h2").html(data.full_name);
-       				$(".popup2016 p").html(data.about);
-       				$(".popup2016 .loadingPop").hide(50, function(){
-                $(".popup2016 .contentPop").slideDown("fast");
-              });
-       			}
-       		});
+          $.ajax({
+            type: "GET",
+            url: "showinfo/"+sp16id,
+            success: function(data){
+              $(".popup2016 img").attr('src', data.img_url);
+              $(".popup2016 h1").html(data.description);
+              $(".popup2016 h2").html(data.full_name);
+              $(".popup2016 p").html(data.about);
+
+              setTimeout(function(){
+                $(".popup2016 .loadingPop").hide(20, function(){
+                  $(".popup2016 .contentPop").slideDown("fast");
+                });
+              }, 150);
+
+            }
+          });
        });
 
 
@@ -101,6 +111,6 @@
           $(".contentPop").hide("fast");
           $(".popup").slideUp('fast');
           $(".popup2016").slideUp('fast');
-       		$(".popback").hide("fast");
+          $(".popback").hide("fast");
           $(".loadingPop").show("fast");
        });
