@@ -62,7 +62,7 @@
        	    var sp15id = $(this).attr('name');
        		$.ajax({
        			type: "GET",
-       			url: "/showvideo/"+sp15id,
+       			url: "showvideo/"+sp15id,
        			success: function(data){
        				$(".sp15popvideo").attr('src', data.video);
        				$(".popup h1").html(data.description);
@@ -77,7 +77,7 @@
        	    var sp16id = $(this).attr('name');
        		$.ajax({
        			type: "GET",
-       			url: "/showinfo/"+sp16id,
+       			url: "showinfo/"+sp16id,
        			success: function(data){
        				$(".popup2016 img").attr('src', data.img_url);
        				$(".popup2016 h1").html(data.description);

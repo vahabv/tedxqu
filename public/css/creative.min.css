@@ -14,10 +14,10 @@
  }
 @font-face{
 	font-family: 'HelveticaNeue';
-	src: url(../fonts/HelveticaNeue.otf);
+	src: url(../fonts/HelveticaNeue.otf) format(opentype);
 }
 *:not(i){
-	font-family: HelveticaNeue !important;
+	font-family: Helvetica !important;
 }
  .bg-footer{
  	padding: 10px 0px;
